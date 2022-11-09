@@ -1,0 +1,120 @@
+@font-face {
+    font-family: vazir;
+    src: url("../fonts/vazir.ttf");
+}
+
+:root {
+    --main-color: #007aff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+    font-family: vazir, serif;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.navbar {
+    width: 100%;
+    height: 30px;
+    position: fixed;
+    top: 0;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    align-content: center;
+    justify-content: center;
+    box-shadow: 0 1px 10px #888888;
+    z-index: 999;
+    background-color: white;
+}
+
+.navbar .links .link {
+    color: var(--main-color);
+    margin: 0 10px;
+    font-size: 18px;
+    position: relative;
+}
+
+.navbar .links .link::after {
+    content: ' ';
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: var(--main-color);
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.navbar .links .link:hover::after {
+    width: 100%;
+}
+
+section {
+    width: 100%;
+}
+
+section#home {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 10% 80% 10%;
+}
+
+.swiper#home_section {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 10px 20px #888;
+    grid-area: 2 / 2 / 2 / 2;
+}
+
+.swiper#home_section .swiper-slide {
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+
+.swiper#home_section .swiper-slide h1 {
+    grid-row: 1 / 2;
+    align-self: center;
+    text-align: center;
+    font-size: 28px;
+    color: var(--main-color);
+    padding: .5%;
+ }
+
+.swiper#home_section .swiper-slide img {
+    grid-row: 2 / 2;
+    width: 100%;
+    height: 100%;
+    align-self: end;
+}
+
+@media screen and (max-width: 992px) {
+    section#home {
+        grid-template-columns: 7.5% 85% 7.5%;
+    }
+
+    .swiper#home_section .swiper-slide {
+        grid-template-rows: 30% 70%;
+    }
+}
+
+@media screen and (max-width: 668px) {
+    .navbar {
+        padding: 15px 5px;
+    }
+
+    section#home {
+        grid-template-columns: 5% 90% 5%;
+    }
+
+    .swiper#home_section .swiper-slide {
+        grid-template-rows: 40% 60%;
+    }
+}
